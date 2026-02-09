@@ -1,0 +1,17 @@
+---
+description: 優先使用 Exa Search MCP，禁止未嘗試就請求 fetch
+alwaysApply: true
+---
+
+# Exa Search 與 Fetch 權限
+
+當專案或環境已安裝 **Exa Search MCP** 時：
+
+1. **禁止**在未先嘗試 Exa 前，向使用者要求 `fetch`、`web_fetch` 或任何瀏覽權限。
+2. **一律優先**使用 Exa Search MCP 工具：
+   - 需要搜尋、找資料 → 用 `web_search_exa`
+   - 需要程式碼／文件範例 → 用 `get_code_context_exa`
+   - 需要某個網頁的內容 → 先用 `web_search_exa` 以相關查詢取得內容（例如用網址關鍵字或 site: 查詢），**不要**直接改用 fetch。
+3. 僅在 **已用過 Exa 且確實不可用、失敗或無法取得所需內容** 時，才可考慮請求其他方式，並必須**簡要說明**為何 Exa 無法滿足。
+
+此規則適用於：Chat、Agent、MCP / Tools 使用情境。請在每次要請求 fetch 權限前檢查本規則。
