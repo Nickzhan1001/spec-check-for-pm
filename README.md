@@ -1,7 +1,6 @@
-# PM Checklist Generator
+# Quotation Check with Spec Kit
 
-透過 **Cursor Agent + pm-checklist skill**，  
-自動從 `prd.md` 與 `epics.md` 產生 **PM 客戶用需求檢核清單（Checklist）**。
+規格與報價檢核專案：結合 **Spec Kit** 工作流與 **Cursor Agent 技能**，支援從 PRD/Epics 產出 PM 客戶需求檢核清單，以及設計稿與規格分析。
 
 ---
 
@@ -50,12 +49,10 @@
 請在以下路徑放入兩個必要檔案：
 
 ```text
-
 analysis_context/
-└─ input/
-├─ prd.md
-└─ epics.md
-
+└── input/
+    ├── prd.md
+    └── epics.md
 ```
 
 - `prd.md`：產品需求文件（Product Requirement Document）
@@ -66,6 +63,7 @@ analysis_context/
 ### 6️⃣ 執行 pm-checklist 技能
 
 在 Cursor 的 Agent 輸入以下指令：
+
 ```
 /pm-checklist 執行 Checklist 完整流程
 ```
@@ -80,11 +78,10 @@ Agent 會自動分析輸入文件並產生對應輸出。
 
 ```text
 analysis_context/
-└─ output/
-├─ pm-client-checklist.md
-└─ pm-client-checklist-full.md
+└── output/
+    ├── pm-client-checklist.md
+    └── pm-client-checklist-full.md
 ```
-
 
 | 檔案名稱 | 說明 |
 |---------|------|
@@ -110,13 +107,29 @@ analysis_context/
 
 ---
 
-## 📂 專案結構說明（簡要）
+## 📂 專案結構說明
 
 ```text
-analysis_context/
-├─ input/ # 輸入文件（PRD / Epics）
-└─ output/ # 產出的 Checklist 檔案
+quotation-check-with-spec-kit/
+├── analysis_context/          # 分析與產出目錄
+│   ├── input/                 # 輸入：prd.md, epics.md, ux-design-specification.md
+│   ├── output/                # PM Checklist 產出
+│   ├── spec/                  # Spec Kit 規格與任務（00-overview, 0x-*.spec.md, tasks/）
+│   └── analysis/              # 分析報告（design-gap-analysis, spec-gap-analysis）
+├── design/                    # 設計稿（design.pen）
+├── docs/                      # 使用說明與 prompt 範本
+│   ├── how_to_use/            # 操作步驟與設計稿同步說明
+│   └── prompt/                # 各流程用 prompt
+├── .cursor/                   # Cursor 規則、技能、指令（Spec Kit 指令等）
+└── .specify/                  # Spec Kit 範本與腳本
 ```
+
+---
+
+## 🔧 其他功能
+
+- **設計稿同步**：設計稿（`design/design.pen`）變更可同步至設計缺漏分析與基準文件，詳見 [設計稿同步說明](docs/how_to_use/design-doc-sync.md)。
+- **Spec Kit**：`.cursor/commands/` 內提供規格與任務拆解等指令（如 `speckit.specify`、`speckit.plan`、`speckit.tasks`），開發流程可參考 `AGENTS.md`。
 
 ---
 
@@ -147,15 +160,4 @@ A：不建議，請固定使用 GPT-5.x 以確保輸出穩定性。
 - 產品經理助理（PMA）
 - 需要快速產出「客戶需求檢核清單」的專案團隊
 - 使用 Cursor Agent 進行規格導向工作的團隊
-
----
-
-
-
-
-
-
-
-
-
 
