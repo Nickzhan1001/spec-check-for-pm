@@ -8091,7 +8091,7 @@
                       "type": "frame",
                       "id": "93Two",
                       "name": "Header Checkbox",
-                      "width": 40,
+                      "width": 20,
                       "height": 20,
                       "fill": "#FFFFFF",
                       "cornerRadius": 4,
@@ -8252,7 +8252,7 @@
                       "type": "frame",
                       "id": "l6sZ5",
                       "name": "Item 1 Checkbox",
-                      "width": 40,
+                      "width": 20,
                       "height": 20,
                       "fill": "#FFFFFF",
                       "cornerRadius": 4,
@@ -8260,7 +8260,9 @@
                         "align": "inside",
                         "thickness": 1,
                         "fill": "#E5E5E5"
-                      }
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center"
                     },
                     {
                       "type": "frame",
@@ -8442,15 +8444,29 @@
                       "type": "frame",
                       "id": "AAmku",
                       "name": "Item 2 Checkbox",
-                      "width": 40,
+                      "width": 20,
                       "height": 20,
-                      "fill": "#FFFFFF",
+                      "fill": "#0D6E6E",
                       "cornerRadius": 4,
                       "stroke": {
                         "align": "inside",
                         "thickness": 1,
                         "fill": "#E5E5E5"
-                      }
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "RZCcS",
+                          "name": "checkIcon",
+                          "width": 14,
+                          "height": 14,
+                          "iconFontName": "check",
+                          "iconFontFamily": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
                     },
                     {
                       "type": "frame",
@@ -8625,7 +8641,7 @@
                       "type": "frame",
                       "id": "c8soX",
                       "name": "Item 3 Checkbox",
-                      "width": 40,
+                      "width": 20,
                       "height": 20,
                       "fill": "#FFFFFF",
                       "cornerRadius": 4,

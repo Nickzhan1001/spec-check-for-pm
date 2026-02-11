@@ -2,7 +2,7 @@
 
 依 `epics.md`、`prd.md`、`ux-design-specification.md` 及 frontend-task spec 對照 `design.pen` 設計稿之缺漏檢查結果。
 
-**檢查日期**：2025-02-11
+**檢查日期**：2026-02-11
 
 ---
 
@@ -21,6 +21,17 @@
 - **狀態**：已補齊
 - **設計稿節點**：`btgQQ` (Return List Page)
 - **內容**：6 組篩選、表頭列、3 筆退貨單範例（含勾選、編輯/查看按鈕）
+- **設計細節**：
+  - 表頭列 (`qoNhs`) 已添加頂部圓角 (12px) 和完整邊框，與列表卡片樣式一致
+  - 建立日期篩選器圖標已改為日曆圖標 (`calendar`)
+  - Checkbox 已添加 checked 狀態樣式（主題色背景 + 白色勾選圖標）
+
+### 3. 退貨作業表單標題樣式
+- **Spec 來源**：設計一致性要求
+- **需求**：表單標題區域應有圓角背景，與整體設計風格一致
+- **狀態**：已補齊
+- **設計稿節點**：`32NLZ` (Title Container) 位於 `ve0aS` (Product Section) 內
+- **內容**：商品資訊標題已添加淺灰色背景容器 (`#F5F5F5`)，圓角 8px，內距 12px/16px
 
 ---
 
@@ -69,7 +80,7 @@
 | Delivery Points Summary | 3GNCk | /receiving/:taskId/summary | |
 | Receiving Detail (Inbound) | Y4m97 | /receiving/:taskId/detail/inbound | |
 | Receiving Detail (Cross-Dock) | csVOT | /receiving/:taskId/detail/cross-dock | |
-| Return List | btgQQ | /return-list | 已補篩選與列表結構 |
+| Return List | btgQQ | /return-list | 已補篩選與列表結構，含 6 組篩選器 |
 | Return Slip Edit | DGIJj | /return-slip-edit/:id | |
 | Return Slip View | tZ93n | /return-slip-view/:id | |
 | Consolidated Slip Edit | sbS52 | /consolidated-slip-edit/:id | |
@@ -79,14 +90,35 @@
 
 ## 四、依功能分列之版面配置（座標）
 
-- **Row 0** (y=0)：登入相關（Login、Login Error、Login Forgot Password）
-- **Row 1** (y=1280)：出貨作業、Delivery Details Dialog、Signature Pad Dialog
+- **Row 0** (y=0)：登入相關
+  - `rHXiG` (x:0, y:0) - Login Page
+  - `teX0Y` (x:2020, y:0) - Login - Error State
+  - `VI131` (x:4040, y:0) - Login - Forgot Password
+
+- **Row 1** (y=1280)：出貨作業
+  - `Shp01` (x:0, y:1280) - Shipping Page
+  - `dpODf` (x:2020, y:1280) - Delivery Details Dialog（燈箱）
+  - `Zas4C` (x:4040, y:1280) - Signature Pad Dialog（燈箱）
+
 - **Row 2** (y=2560)：即時公告
+  - `2GIda` (x:0, y:2560) - Announcement List Page
+  - `KVzhe` (x:2020, y:2560) - Announcement Detail Page
+
 - **Row 3** (y=3840)：收貨作業
+  - `W3aJj` (x:0, y:3840) - Receiving List Page
+  - `3GNCk` (x:2020, y:3840) - Delivery Points Summary Page
+  - `Y4m97` (x:4040, y:3840) - Receiving Detail Page (Inbound)
+  - `csVOT` (x:6060, y:3840) - Receiving Detail Page (Cross-Dock)
+
 - **Row 4** (y=5120)：退貨作業
+  - `btgQQ` (x:295, y:5203) - Return List Page
+  - `DGIJj` (x:2020, y:5120) - Return Slip Edit Page
+  - `tZ93n` (x:6060, y:5120) - Return Slip View Page
+  - `sbS52` (x:4040, y:5120) - Consolidated Slip Edit Page
+  - `RS7yb` (x:8080, y:5120) - Consolidated Slip View Page
 
 ---
 
 ## 五、結論
 
-主要缺漏「簽名板燈箱」與「退貨列表篩選／表格結構」已於 design.pen 中補齊。其餘為欄位細節、動態行為與錯誤狀態等，建議於實作前再對 Spec 逐項對照，並視需要補充設計 mockup。
+主要缺漏「簽名板燈箱」與「退貨列表篩選／表格結構」已於 design.pen 中補齊。設計細節方面，已完善退貨列表表頭圓角與邊框、表單標題圓角背景、checkbox checked 狀態樣式，以及日期選擇器圖標等視覺元素。其餘為欄位細節、動態行為與錯誤狀態等，建議於實作前再對 Spec 逐項對照，並視需要補充設計 mockup。
