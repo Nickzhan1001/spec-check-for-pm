@@ -1,0 +1,24 @@
+[Match: alwaysApply]
+
+# 設計稿 → Vue 實作規則
+
+目的：當使用者要求將設計稿轉為 Vue 專案實作規劃時，強制使用一致的樣式分工規範，避免全域樣式與頁面樣式混用。
+
+適用範圍（重要）：
+- 對話涉及 `docs/prompt/design-to-vue-implementation.prompt.md`。
+- 使用者提到「design to vue implementation」或等價語意（設計稿轉 Vue 實作）。
+
+---
+
+## 權威來源
+- Prompt：`docs/prompt/design-to-vue-implementation.prompt.md`
+
+## 樣式分工（強制）
+- 全域樣式（reset、tokens、base、theme）只能放在 `frontend/src/styles/`。
+- 全域樣式檔案一律使用 SCSS（例如 `main.scss`）。
+- `views/` 與 `components/` 以 Tailwind utility classes 為主要樣式方式。
+- 避免在 `views/` 或 `components/` 新增大量 scoped SCSS；僅允許必要且小範圍覆寫。
+
+## 禁止事項
+- 禁止把全域樣式散落到 `views/`、`components/`、`modules/`。
+- 禁止以 scoped SCSS 取代 Tailwind 作為頁面主要樣式策略。

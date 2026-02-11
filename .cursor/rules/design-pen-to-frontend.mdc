@@ -1,0 +1,26 @@
+[Match: alwaysApply]
+
+# .pen → 前端 Code 規劃（不實作）
+
+目的：當使用者要求把 `.pen` 設計稿轉為前端 code「規劃」時，強制遵守一致的技術棧與決策規則，避免不同 Agent 產生不可比較的方案。
+
+適用範圍（重要）：
+- 只有在對話內容涉及以下任一情境時才套用本規則：
+  - 使用者提到 `design/design.pen` 或 `@design\\design.pen`
+  - 使用者提到「.pen 轉前端 code」或「design.pen 轉 code」
+  - 使用者引用或要求執行 `docs/prompt/design-pen-to-frontend.prompt.md`
+- 若非上述情境，請忽略本規則。
+
+---
+
+## 權威來源
+- 規劃 Prompt：`docs/prompt/design-pen-to-frontend.prompt.md`
+
+## 強制決策
+- 預設技術棧：Vue 3 + TypeScript + Vite + Vue Router + Pinia
+- UI 框架預設：Element Plus
+- Icons：lucide
+- Styling：CSS Variables（Design Tokens）+ 小幅覆寫
+
+## 禁止事項
+- 本規則適用時：只允許「規劃」，禁止輸出可直接編譯的程式碼、禁止修改/新增 repo 檔案。
