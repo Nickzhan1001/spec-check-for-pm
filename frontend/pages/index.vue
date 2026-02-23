@@ -1,3 +1,3 @@
 <script setup lang="ts">
-await navigateTo('/shipping', { replace: true })
+  await navigateTo("/login", { replace: true });
 </script>
